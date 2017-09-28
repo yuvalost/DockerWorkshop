@@ -1,0 +1,2 @@
+kubectl create secret docker-registry docker-hub --docker-username naderganayem --docker-password me030873 --docker-server index.docker.io  --docker-email someone@sunbit.com
+

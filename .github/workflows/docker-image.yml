@@ -16,9 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag yuvalost/dockerworkshop:${{ github.run_numbe }}
+      run: docker build . --file Dockerfile --tag yuvalost/dockerworkshop:${{ github.run_number }}
     - name: docker login
-      run: docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
-    - name: push the image
-      run: docker push yuvalost/dockerworkshop:${{ github.run_numbe }}
-      
+      run: echo ${{ secrets.PASSWORD }} | docker login -u ${{ secrets.USERNAME }} --password-stdin
+    - name: Push the image
+      run: docker push yuvalost/dockerworkshop:${{ github.run_number }}

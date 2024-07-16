@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag yuvalost/dockerworkshop:${{ github.run_numbe }}
     - name: docker login
-      run: docker login -u {{ secrets.USERNAME }} -p {{ secrets.PASSWORD }}
+      run: docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
     - name: push the image
       run: docker push yuvalost/dockerworkshop:${{ github.run_numbe }}
       
